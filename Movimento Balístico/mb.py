@@ -12,7 +12,7 @@ posicoes_y = []
 
 while(intervalo >= 0):
     
-    pos_x = c.pos_x(intervalo, angulo, inicio, v_inicio)
+    pos_x = c.pos_x(intervalo, angulo, v_inicio)
     pos_y = c.pos_y(intervalo, angulo, inicio, v_inicio)
     if intervalo > 0 and pos_y < 0:
         break
