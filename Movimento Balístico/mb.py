@@ -14,13 +14,13 @@ while(intervalo >= 0):
     
     pos_x = c.pos_x(intervalo, angulo, v_inicio)
     pos_y = c.pos_y(intervalo, angulo, inicio, v_inicio)
+    posicoes_x.append(pos_x)
+    posicoes_y.append(pos_y)
+    
     if intervalo > 0 and pos_y < 0:
         break
 
-    posicoes_x.append(pos_x)
-    posicoes_y.append(pos_y)
-
-    intervalo += 0.01
+    intervalo += 0.1
 
 
 plt.figure('Movimento balístico')
