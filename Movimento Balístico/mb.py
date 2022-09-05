@@ -17,6 +17,10 @@ while(intervalo >= 0):
     posicoes_x.append(pos_x)
     posicoes_y.append(pos_y)
     
+    if intervalo > 0:
+        print("velocidade x:", c.v_x(v_inicio, angulo, intervalo))
+        ang = c.ang(c.v_x(v_inicio, angulo, intervalo), c.v_y(v_inicio, angulo, intervalo))
+        print("Ângulo: {0:.2f}".format(ang))
     if intervalo > 0 and pos_y < 0:
         break
 
@@ -28,6 +32,7 @@ plt.ylabel('Altura')
 plt.xlabel('Distância')
 plt.plot(posicoes_x, posicoes_y)
 plt.xlim(left = -1)
+plt.xlim(right = 1000)
 
 plt.show()
 
