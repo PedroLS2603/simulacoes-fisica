@@ -5,32 +5,40 @@ gravidade = 9.80665
 # ** Equações eixo X ** #
 
 def v0_x(v_inicio, ang_inicio):
-    return round(v_inicio * round(m.cos(m.radians(ang_inicio)) , 6), 6)
+    ang_inicio = m.radians(ang_inicio)
+    cos_ang = round(m.cos(ang_inicio), 6)
 
-def v_x(v_inicio, ang_inicio, tempo):
-    return round(v0_x(v_inicio, ang_inicio) * tempo, 6)
+    return round(v_inicio * cos_ang, 6)
 
 def pos_x(tempo, ang_inicio, v_inicio):
-    return round(v0_x(v_inicio, ang_inicio) * tempo, 4)
+    vel = v0_x(v_inicio, ang_inicio)
+
+    return round(vel * tempo, 4)
 
 # ** Equações eixo y ** #
 
 def v0_y(v_inicio, ang_inicio):
-    return round(v_inicio * round(m.sin(m.radians(ang_inicio)), 6), 6)
+    ang_inicio = m.radians(ang_inicio)
+    sen_ang = round(m.sin(ang_inicio), 6)
+
+    return round(v_inicio * sen_ang, 6)
 
 def v_y(v_inicio, ang_inicio, tempo):
-    return round(v0_y(v_inicio, ang_inicio) - round(gravidade * tempo, 6), 4)
+    v0y = v0_y(v_inicio, ang_inicio)
+
+    return round(v0y - round(gravidade * tempo, 6), 6)
 
 def pos_y(tempo, ang_inicio, inicio, v_inicio):
-    return round(inicio + v0_y(v_inicio, ang_inicio) * tempo - (gravidade * m.pow(tempo, 2))/2, 4)
+    v0y = v0_y(v_inicio, ang_inicio)
+
+    return round(inicio + v0y * tempo - ((gravidade * (m.pow(tempo, 2)))/2), 4)
 
 # **      Outros     ** #
 
 def ang(v_x, v_y):
     tg_ang = v_y / v_x
-    print(m.atan(tg_ang))
 
     return m.degrees(m.atan(tg_ang))
 
-def v_t(v_inicio, ang_inicio):
-    return round(v_x(v_inicio, ang_inicio) + v_y(v_inicio, ang_inicio), 4)
+def v_t(v_inicio, ang_inicio, tempo):
+    return round(v0_x(v_inicio, ang_inicio) + v_y(v_inicio, ang_inicio, tempo), 4)
