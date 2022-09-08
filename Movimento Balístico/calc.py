@@ -41,4 +41,4 @@ def ang(v_x, v_y):
     return m.degrees(m.atan(tg_ang))
 
 def v_t(v_inicio, ang_inicio, tempo):
-    return round(v0_x(v_inicio, ang_inicio) + v_y(v_inicio, ang_inicio, tempo), 4)
+    return round(m.sqrt(m.pow(v0_x(v_inicio, ang_inicio), 2) + m.pow(v_y(v_inicio, ang_inicio, tempo), 2)), 4)
