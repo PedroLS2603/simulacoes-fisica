@@ -1,5 +1,4 @@
 import matplotlib.pyplot as plt
-from IPython.display import display
 import pandas as pd
 import calc as c
 
@@ -57,7 +56,7 @@ plt.xlim(left = -1)
 
 planilha = pd.DataFrame({'T (s)': intervalos, 'X (m)':posicoes_x, 'Y (m)': posicoes_y, 'V0x (m/s)': comp_vx, 'V0y (m/s)': comp_vy, 'Vx (m/s)': vel_x, 'Vy (m/s)': vel_y, 'Vt (m/s)': vel_t, 'α (°)': angs})
 
-display(planilha)
+print(planilha)
 
 plt.show()
 
